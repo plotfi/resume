@@ -1,0 +1,175 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemNoTitle}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{8pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      {\small#3} & {\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{}
+\newcommand{\resumeSubHeadingListEnd}{}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\fakesection}[1]{%
+  \par\refstepcounter{section}% Increase section counter
+  \sectionmark{#1}% Add section mark (header)
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+  % Add more content here, if needed.
+}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabularx}{\textwidth}{ X r }
+  {\href{www.puyan.org}{\fontsize{70}{60}\selectfont Puyan Lotfi}} &
+  \begin{tabular}{ r }
+    +1 (415) 802-7144 \\
+    \href{www.puyan.org}{www.puyan.org} \\
+    \href{mailto:puy@nlot.fi}{puy@nlot.fi} \\
+    \href{https://keybase.io/plotfi}{keybase.io/plotfi}\\
+    \\
+    \\
+  \end{tabular}
+\end{tabularx}
+
+\fakesection{Education}
+  \resumeSubHeadingListStart
+    \vspace{8pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{Georgia Institute of Technology} & Atlanta, GA \\
+      {\small MS Computer Science} & {\small May 2011} \\
+      {\small BS Computer Science} & {\small May 2007} \\
+    \end{tabular*}\vspace{-5pt}
+      
+  \resumeSubHeadingListEnd
+
+\vspace{8pt}
+
+
+\fakesection{Experience}
+  \resumeSubHeadingListStart
+
+    \vspace{4pt}
+    \resumeSubheading
+      {Facebook}{Menlo Park, CA}
+      {Compiler Engineer: LLVM Core Compilers Team}{May 2018 - Present}
+      \vspace{8pt}
+      \resumeItemListStart
+        \resumeItem{Summary}
+        {General tooling work in the space of llvm-objcopy, and library file generation. Primarily focused on LLVM opt passes and optimization work in order to improve performance for the Facebook family of applications and services.}
+      \resumeItemListEnd
+
+    \vspace{4pt}
+    \resumeSubheading
+      {Apple}{Cupertino, CA}
+      {Backend Compiler Engineer: LLVM-GPU Team}{August 2013 - May 2018}
+      \vspace{8pt}
+      \resumeItemListStart
+ 
+        \resumeItem{GPU Compiler Backend}
+          {I have worked on a variety of backend codegen components of Apple's LLVM GPU compiler for iOS in various capacities including the Fast Instruction Selector (effort lead by me for iPhone 6 and 6s), code scheduler (bug fixes), compile time tuning, as well as adding new features and encodings for new hardware Targets. I have experience working through multiple product life cycles that include Apple A8, A9, A10, A11, and A12 based devices as well as iOS 8-12 OS releases. I did compiler backend work on Apple's first ever in-house GPU design (The A11 Bionic GPU). }
+
+         \resumeItem{llvm-mc based GPU Assembler}
+          {I lead the effort to build Apple's internal LLVM based GPU assembler (A11/A12 GPU) while also doing the assembly syntax design for it. I used a BNF format for writing a syntax description document that was used cross-functionally as part of an assembly syntax unification effort of all assembly for GPU tools across all of Apple.}
+
+         \resumeItem{GPU Binary Tooling Infrastructure and Disassembler}
+          {Originally I wrote a hand-written disassembler from scratch to verify instruction encodings coming out of the LLVM based compiler and assembler where the goal was to catch encoding bugs extremely early in the development process of future hardware. Said disassembler ended up turning into a general binary tooling infrastructure with its own IR and APIs. It is now being used at Apple for everything from building shader profiling tools to doing performance studies.}
+    
+         \resumeItem{Metal Shader Profiler}
+          {As part of a cross-functional tooling effort aimed at building a publicly available shader profiling tool, I wrote a library based on the above mentioned binary tooling infrastructure that provides program counter information of places in code where shader pipeline execution gets interrupted. This binary level shader analysis library has been used by my counterparts to build the Metal Shader Profiler. Aside from pipeline profiling, mentioned GPU Binary Infrastructure was used to make cost breakdowns for instruction types in a given shader. The Metal Shader Profiler shipped in Xcode 10. \textbf{Apple Developer Documentation Link:} \href{https://developer.apple.com/documentation/metal/gpu_functions_libraries/optimizing_performance_with_the_shader_profiler}{https://goo.gl/xFj61X.}}
+     
+         \resumeItem{MIR-Canon: Improving Code Diff Through Canonical Transformation.}
+          {MIR-Canon is an LLVM based compiler pass that canonicalizes Machine IR for cleaner code diff. Based on this work I \textbf{gave a talk at the 2018  Euro LLVM conference:} \href{https://llvm.org/devmtg/2018-04/index.html\#talks}{https://goo.gl/xX5pmj}. \textbf{Video link:}
+          \href{https://youtu.be/RHT-bh\_xo6U}{https://youtu.be/RHT-bh\_xo6U}.}
+    
+        \resumeItem{Metal Explorer}
+          {Worked with my counterparts in Apple's GPU Driver org to add polish to and live deploy an internal fork of godbolt.org's compiler explorer for use with Metal shaders and internal Apple GPU Assembly and IR. This project has been and continues to be a huge success with many internal users across various hardware and software orgs at Apple.}    
+     
+      \resumeItemListEnd
+
+    \vspace{8pt}
+    
+    \vspace{4pt}
+    \resumeSubheading
+      {Intel}{Santa Clara, CA}
+      {Compiler Engineer}{June 2011 - July 2013}
+
+    \vspace{4pt}
+    \resumeSubheading
+      {ArrayFire}{Atlanta, GA}
+      {Compiler Engineer}{Summer 2010}
+
+    \vspace{4pt}
+    \resumeSubheading
+      {Microsoft}{Redmond, WA}
+      {Software Engineer}{March 2008 - August 2009}
+      
+
+\resumeSubHeadingListEnd
+
+\end{document}
